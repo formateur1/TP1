@@ -26,5 +26,7 @@ public class App
         session.save(cb1);
         
         session.getTransaction().commit();
+        
+// Theo was here
     }
 }
