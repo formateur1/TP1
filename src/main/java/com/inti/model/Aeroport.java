@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table
@@ -15,6 +16,9 @@ public class Aeroport {
 	@Id
 	private int id;
 	private String nom;
+	
+	@Transient
+	private String nomPilote;
 	
 	@OneToMany(mappedBy = "aeroport", cascade = CascadeType.ALL)
 	private List<InfosEscale> listeIE;
@@ -44,6 +48,12 @@ public class Aeroport {
 	}
 	public void setListeIE(List<InfosEscale> listeIE) {
 		this.listeIE = listeIE;
+	}
+	public String getNomPilote() {
+		return nomPilote;
+	}
+	public void setNomPilote(String nomPilote) {
+		this.nomPilote = nomPilote;
 	}
 	@Override
 	public String toString() {
